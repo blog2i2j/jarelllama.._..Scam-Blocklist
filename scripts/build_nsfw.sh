@@ -82,12 +82,12 @@ main() {
 ! Expires: 12 hours
 ! Last modified: $(date -u)
 ! Syntax: Adblock Plus
-! Number of entries: $(wc -l < compiled.tmp)
+! Number of entries: $(grep -cF '||' compiled.tmp)
 !
 EOF
 
         # Addend entries excluding comments
-        mawk '!/!/' compiled.tmp
+        grep -F '||' compiled.tmp
     } > "$BLOCKLIST"
 }
 
