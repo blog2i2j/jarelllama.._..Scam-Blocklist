@@ -66,7 +66,6 @@ main() {
         $0 ~ terms && $0 !~ whitelist' toplist.tmp | sort -u -o raw.tmp
 
     # Compile the blocklist
-    printf "\n"
     hostlist-compiler -i raw.tmp -o compiled.tmp
 
     # Create the blocklist
@@ -87,7 +86,7 @@ main() {
 EOF
 
         # Addend entries excluding comments
-        grep -F '||' compiled.tmp
+        awk '/\|\|/' compiled.tmp
     } > "$BLOCKLIST"
 }
 
