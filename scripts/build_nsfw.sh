@@ -86,7 +86,7 @@ main() {
 EOF
 
         # Addend entries excluding comments
-        awk '/\|\|/' compiled.tmp
+        mawk '/\|\|/' compiled.tmp
     } > "$BLOCKLIST"
 }
 
